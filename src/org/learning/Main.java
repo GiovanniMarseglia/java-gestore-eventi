@@ -10,21 +10,20 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int choice;
-        Event event = null;
+        Event event;
         Concert concert = null;
         int choiceType = 0;
 
         while (choiceType != 3) {
             choice = 1;
-            choiceType=0;
-            System.out.println("Inserisci 1 se vuoi inserire un evento altrimenti inserisci 2 se vuoi inserire un concerto oopure 3 se vuoi uscire");
+            System.out.println("Inserisci 1 se vuoi inserire un evento altrimenti inserisci 2 se vuoi inserire un concerto opure 3 se vuoi uscire");
             choiceType = Integer.parseInt(scanner.nextLine());
 
 
             switch (choiceType) {
 
                 case 1:
-
+                    event=null;
                     while (event == null) {
                         try {
                             System.out.println("Inserisci un nuovo evento");
