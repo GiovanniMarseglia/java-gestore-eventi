@@ -8,29 +8,32 @@ public class MainBonus {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Inserisci il titolo della programmazione eventi");
         ProgramEvent programEvent = new ProgramEvent(scanner.nextLine());
+        int choice=1;
+        System.out.println("Premere 1 per inserire un nuovo evento premi 2 per terminare l'inserimento");
+        while(choice!=2){
+            choice = Integer.parseInt(scanner.nextLine());
 
-        Event event=null;
-        System.out.println("Inserisci un nuovo evento");
-        System.out.println("Inserisci titolo evento");
-        String title = scanner.nextLine();
-        System.out.println("Inserisci data");
-        LocalDate data = LocalDate.parse(scanner.nextLine());
-        System.out.println("Inserisci i posti totali");
-        int placeTotal = Integer.parseInt(scanner.nextLine());
-        event = new Event(title, data, placeTotal);
+            switch (choice){
+                case 1:
+                    Event event;
+                    System.out.println("Inserisci un nuovo evento");
+                    System.out.println("Inserisci titolo evento");
+                    String title = scanner.nextLine();
+                    System.out.println("Inserisci data");
+                    LocalDate data = LocalDate.parse(scanner.nextLine());
+                    System.out.println("Inserisci i posti totali");
+                    int placeTotal = Integer.parseInt(scanner.nextLine());
+                    event = new Event(title, data, placeTotal);
 
-        programEvent.addEvent(event);
+                    programEvent.addEvent(event);
+                    break;
+                case 2 :
 
-        System.out.println("Inserisci un nuovo evento");
-        System.out.println("Inserisci titolo evento");
-        title = scanner.nextLine();
-        System.out.println("Inserisci data");
-        data = LocalDate.parse(scanner.nextLine());
-        System.out.println("Inserisci i posti totali");
-        placeTotal = Integer.parseInt(scanner.nextLine());
-        event = new Event(title, data, placeTotal);
-
-        programEvent.addEvent(event);
+                    break;
+                default:
+                    System.out.println("Valore non valido, inserisci solo 1 o 2");
+            }
+        }
 
         System.out.println("Numero di elementi nella lista " + programEvent.queryListCount());
         System.out.println("Stampa di tutti gli elementi ordinati in ordine cronologico per data");
