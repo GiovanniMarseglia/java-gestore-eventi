@@ -4,17 +4,18 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Event {
-    private String title;
-    private LocalDate data;
+    private final String TITLE;
+    private final LocalDate DATA;
     final int PLACE_TOTAL;
     public static int placePreorder;
 
     public Event(String title,LocalDate data,int placeTotal) {
-        this.data = validDate(data);
+        this.DATA = validDate(data);
         this.PLACE_TOTAL = positivePlace(placeTotal);
-        this.title = title;
+        this.TITLE = title;
         placePreorder=0;
     }
+
 
     public int positivePlace(int place) throws IllegalArgumentException{
         if (place <= 0){
@@ -65,19 +66,11 @@ public class Event {
 
 
     public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
+        return TITLE;
     }
 
     public LocalDate getData() {
-        return data;
-    }
-
-    public void setData(LocalDate data) {
-        this.data = data;
+        return DATA;
     }
 
     public int getPlaceTotal() {
@@ -90,6 +83,6 @@ public class Event {
 
     @Override
     public String toString() {
-        return data.format(DateTimeFormatter.ofPattern("dd-MM-yyyyy")) + getTitle();
+        return DATA.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + " " + getTitle();
     }
 }
