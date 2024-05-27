@@ -9,24 +9,28 @@ public class MainBonus {
         System.out.println("Inserisci il titolo della programmazione eventi");
         ProgramEvent programEvent = new ProgramEvent(scanner.nextLine());
         int choice=1;
-        System.out.println("Premere 1 per inserire un nuovo evento premi 2 per terminare l'inserimento");
         while(choice!=2){
+            System.out.println("Premere 1 per inserire un nuovo evento premi 2 per terminare l'inserimento");
             choice = Integer.parseInt(scanner.nextLine());
 
             switch (choice){
                 case 1:
-                    Event event;
-                    System.out.println("Inserisci un nuovo evento");
-                    System.out.println("Inserisci titolo evento");
-                    String title = scanner.nextLine();
-                    System.out.println("Inserisci data");
-                    LocalDate data = LocalDate.parse(scanner.nextLine());
-                    System.out.println("Inserisci i posti totali");
-                    int placeTotal = Integer.parseInt(scanner.nextLine());
-                    event = new Event(title, data, placeTotal);
+                    try {
+                        Event event;
+                        System.out.println("Inserisci un nuovo evento");
+                        System.out.println("Inserisci titolo evento");
+                        String title = scanner.nextLine();
+                        System.out.println("Inserisci data");
+                        LocalDate data = LocalDate.parse(scanner.nextLine());
+                        System.out.println("Inserisci i posti totali");
+                        int placeTotal = Integer.parseInt(scanner.nextLine());
+                        event = new Event(title, data, placeTotal);
 
-                    programEvent.addEvent(event);
-                    break;
+                        programEvent.addEvent(event);
+                        break;
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
                 case 2 :
 
                     break;
