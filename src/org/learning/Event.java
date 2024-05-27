@@ -6,12 +6,12 @@ import java.time.format.DateTimeFormatter;
 public class Event {
     private String title;
     private LocalDate data;
-    private int placeTotal;
+    final int PLACE_TOTAL;
     public static int placePreorder;
 
     public Event(String title,LocalDate data,int placeTotal) {
         this.data = validDate(data);
-        this.placeTotal = positivePlace(placeTotal);
+        this.PLACE_TOTAL = positivePlace(placeTotal);
         this.title = title;
         placePreorder=0;
     }
@@ -32,21 +32,6 @@ public class Event {
         }
     }
 
-    public void calcel(int places,LocalDate data){
-        if(positivePlace(places) < getPlacePreorder()){
-            try {
-                validDate(data);
-                placePreorder -= places;
-            }catch (IllegalArgumentException e){
-                System.out.println(e.getMessage());
-            }
-
-        }else{
-            System.out.println("Stai cercando di cancella più posti di quelli prenotati, i posti prenotati al momento sono " + getPlacePreorder());
-        }
-    }
-
-
     public void preorder(int places,LocalDate data){
         if((positivePlace(places)+getPlacePreorder()) < getPlaceTotal()){
             try {
@@ -60,6 +45,23 @@ public class Event {
             System.out.println("I posti inseriti sono troppi in base ai posti rimasti, puoi prenotare al massimo: " + (getPlaceTotal() - getPlacePreorder()));
         }
     }
+
+
+
+    public void calcel(int places,LocalDate data){
+        if(positivePlace(places) <= getPlacePreorder()){
+            try {
+                validDate(data);
+                placePreorder -= places;
+            }catch (IllegalArgumentException e){
+                System.out.println(e.getMessage());
+            }
+
+        }else{
+            System.out.println("Stai cercando di cancella più posti di quelli prenotati, i posti prenotati al momento sono " + getPlacePreorder());
+        }
+    }
+
 
 
     public String getTitle() {
@@ -79,7 +81,7 @@ public class Event {
     }
 
     public int getPlaceTotal() {
-        return placeTotal;
+        return PLACE_TOTAL;
     }
 
     public int getPlacePreorder() {
