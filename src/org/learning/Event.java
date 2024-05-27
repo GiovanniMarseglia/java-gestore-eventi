@@ -49,7 +49,7 @@ public class Event {
 
 
 
-    public void calcel(int places,LocalDate data){
+    public void calcelPlace(int places,LocalDate data){
         if(positivePlace(places) <= getPlacePreorder()){
             try {
                 validDate(data);
@@ -83,6 +83,7 @@ public class Event {
 
     @Override
     public String toString() {
-        return DATA.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + " " + getTitle();
+        return DATA.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + "-" + getTitle();
     }
+
 }

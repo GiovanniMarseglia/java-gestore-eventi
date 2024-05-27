@@ -54,7 +54,7 @@ public class Main {
                             case 2:
                                 System.out.println("Qunati puosti vuoi cancellare? Posti al momento prenotati: " + event.getPlacePreorder());
                                 int cancelPlace = Integer.parseInt(scanner.nextLine());
-                                event.calcel(cancelPlace, event.getData());
+                                event.calcelPlace(cancelPlace, event.getData());
                                 System.out.println("Hai rimosso correttamente: " + cancelPlace + " posti, il totale dei posti prenotati al momento sono di: " + event.getPlacePreorder() + " a fronte dei: " + event.getPlaceTotal() + " totali");
                                 break;
                             case 3:
@@ -109,7 +109,7 @@ public class Main {
                             case 2:
                                 System.out.println("Qunati puosti vuoi cancellare? Posti al momento prenotati: " + concert.getPlacePreorder());
                                 int cancelPlace = Integer.parseInt(scanner.nextLine());
-                                concert.calcel(cancelPlace, concert.getData());
+                                concert.calcelPlace(cancelPlace, concert.getData());
                                 System.out.println("Hai rimosso correttamente: " + cancelPlace + " posti, il totale dei posti prenotati al momento sono di: " + concert.getPlacePreorder() + " a fronte dei: " + concert.getPlaceTotal() + " totali");
                                 break;
                             case 3:
